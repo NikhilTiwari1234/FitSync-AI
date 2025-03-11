@@ -28,33 +28,10 @@
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
-                    <button type="button" class="next-btn" onclick="nextStep()">Next <i class="fas fa-arrow-right"></i></button>
+                    <button type="button" class="next-btn" onclick="window.location.href='infoo.html'">Next <i class="fas fa-arrow-right"></i></button>
                 </div>
 
-                <div class="form-step" data-step="2">
-                    <div class="form-group">
-                        <label for="company">Company Name</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="jobTitle">Job Title</label>
-                        <input type="text" id="jobTitle" name="jobTitle">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">Area of Interest</label>
-                        <select id="interest" name="interest">
-                            <option value="">Select an option</option>
-                            <option value="development">Web Development</option>
-                            <option value="design">Design</option>
-                            <option value="marketing">Marketing</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="button-group">
-                        <button type="button" class="back-btn" onclick="previousStep()"><i class="fas fa-arrow-left"></i> Back</button>
-                        <button type="submit" class="submit-btn">Submit <i class="fas fa-check"></i></button>
-                    </div>
-                </div>
+                
             </form>
         </div>
     </div>

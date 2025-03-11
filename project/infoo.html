@@ -44,5 +44,92 @@
         </form>
     </div>
     <script src="script.js"></script>
+    <script>
+       document.getElementById('myForm').addEventListener('submit', async function(event) {
+
+event.preventDefault(); // Prevent page refresh
+
+
+
+// Get form input values
+
+const weight = document.getElementById('weight').value;
+
+const height = document.getElementById('height').value;
+
+const age = document.getElementById('age').value;
+
+const gender = document.getElementById('gender').value;
+
+const goal = document.getElementById('goal').value;
+
+
+
+// Create JSON object
+
+const userData = {
+
+    weight: weight,
+
+    height: height,
+
+    age: age,
+
+    gender: gender,
+
+    goal: goal
+
+};
+
+
+
+try {
+
+    // Send data to Flask API
+
+    const response = await fetch('http://127.0.0.1:5000/recommend', {
+
+        method: 'POST',
+
+        headers: {
+
+            'Content-Type': 'application/json'
+
+        },
+
+        body: JSON.stringify(userData)
+
+    });
+
+
+
+    // Get response
+
+    const data = await response.json();
+
+
+
+    // Display the recommendations on the website
+
+    document.getElementById('result').innerHTML = `
+
+        <h3>Recommendations:</h3>
+
+        <p><b>Calories Needed:</b> ${data.calories_needed}</p>
+
+        <p><b>Workout Plan:</b> ${data.recommended_workout.join(', ')}</p>
+
+    `;
+
+
+
+} catch (error) {
+
+    console.error('Error:', error);
+
+}
+
+});
+    </script>
 </body>
 </html>
